@@ -1,0 +1,30 @@
+<template>
+  <div class="homepage-container">
+    <a-layout :style="{background: '#fff'}">
+      <a-layout-header class="header">
+        <div class="page-title">
+          <router-link to="/">sudu 前端结构</router-link>
+        </div>
+        <!-- user - profile -->
+      </a-layout-header>
+      <a-layout-content class="home-layout">
+        <router-view></router-view>
+      </a-layout-content>
+    </a-layout>
+    <a-layout-footer>© 慕课网（imooc.com）版权所有 | 津ICP备20000929号-2</a-layout-footer>
+  </div>
+</template>
+
+<script lang="ts">
+</script>
+
+<style scoped>
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page-title {
+  color: #fff;
+}
+</style>

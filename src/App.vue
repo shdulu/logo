@@ -1,14 +1,12 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app-container">
+    <router-view></router-view>
   </div>
-  <router-view></router-view>
 </template>
 
-<style lang="scss">
-#app {
-  width: 100%;
-  height: 100%;
-}
-</style>
+<script lang="ts">
+import { defineComponent } from 'vue'
+export default defineComponent({
+  name: 'App'
+})
+</script>
