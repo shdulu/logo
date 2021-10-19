@@ -1,0 +1,24 @@
+{
+  "window.zoomLevel": 0.7,
+  "editor.tabSize": 2,
+  "search.exclude": {
+    "**/node_modules": false
+  },
+  "eslint.validate": ["typescript"],
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "octref.vetur"
+  },
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "[javascript]": {
+    "editor.formatOnSave": true
+  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
