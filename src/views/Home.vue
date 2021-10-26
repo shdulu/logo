@@ -26,7 +26,7 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style>
 .page-title {
   color: #fff;
 }
