@@ -4,7 +4,10 @@
       <a-layout-sider width="300" style="background: #fff">
         <div class="sidebar-container">
           组件列表
-          <!-- componnets-list -->
+          <components-list
+            :list="defaultTextTemplates"
+            @onItemClick="addItem"
+          />
         </div>
       </a-layout-sider>
       <a-layout style="padding: 0 24px 24px">
@@ -15,10 +18,18 @@
           </div>
         </a-layout-content>
       </a-layout>
-      <a-layout-sider width="300" style="background: #fff" class="settings-panel">
+      <a-layout-sider
+        width="300"
+        style="background: #fff"
+        class="settings-panel"
+      >
         组件属性
-        <!-- props-table  -->
-        <pre>this is pre</pre>
+        <props-table
+          v-if="currentElement && currentElement.props"
+          :props="currentElement.props"
+          @change="handleChange"
+        ></props-table>
+        <pre>{{ currentElement && currentElement.props }}</pre>
       </a-layout-sider>
     </a-layout>
   </div>
@@ -30,15 +41,22 @@ import { useStore } from 'vuex'
 import { GlobalDataProps } from '@/store'
 import { ComponentData } from '@/store/editor'
 import { defaultTextTemplates } from '../defaultTemplates'
+
+import ComponentsList from '@/components/ComponentsList.vue'
+import PropsTable from '@/components/PropsTable.vue'
+
 export default defineComponent({
-  components: {},
+  components: {
+    ComponentsList,
+    PropsTable
+  },
   setup() {
     const store = useStore<GlobalDataProps>()
     const components = computed(() => store.state.editor.components)
     const currentElement = computed<ComponentData | null>(
       () => store.getters.getCurrentElement
     )
-
+    console.log(currentElement.value, '000000000000000000000000000000')
     const addItem = (component: any) => {
       store.commit('addComponent', component)
     }
@@ -46,7 +64,6 @@ export default defineComponent({
       store.commit('setActive', id)
     }
     const handleChange = (e: any) => {
-      console.log('event', e)
       store.commit('updateComponent', e)
     }
     return {
