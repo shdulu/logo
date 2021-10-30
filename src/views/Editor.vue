@@ -1,36 +1,50 @@
 <template>
   <div class="editor-container">
     <a-layout>
-      <a-layout-sider width="300" style="background: #fff">
-        <div class="sidebar-container">
-          组件列表
-          <components-list
-            :list="defaultTextTemplates"
-            @onItemClick="addItem"
-          />
-        </div>
-      </a-layout-sider>
-      <a-layout style="padding: 0 24px 24px">
-        <a-layout-content class="preview-container">
-          <p>画布区域</p>
-          <div class="preview-list" id="canvas-area">
-            <!-- edit-wrapper -->
+      <a-layout-header>Header</a-layout-header>
+      <a-layout>
+        <a-layout-sider width="300" style="background: #fff">
+          <div class="sidebar-container">
+            <div class="sidebar-title">组件列表</div>
+            <components-list
+              :list="defaultTextTemplates"
+              @onItemClick="addItem"
+            />
           </div>
-        </a-layout-content>
+        </a-layout-sider>
+        <a-layout style="padding: 0 24px 24px">
+          <a-layout-content class="preview-container">
+            <p>画布区域</p>
+            <div class="preview-list" id="canvas-area">
+              <edit-wrapper
+                @setActive="setActive"
+                v-for="component in components"
+                :key="component.id"
+                :id="component.id"
+                :active="component.id === (currentElement && currentElement.id)"
+              >
+                <component
+                  :is="component.name"
+                  v-bind="component.props"
+                ></component>
+              </edit-wrapper>
+            </div>
+          </a-layout-content>
+        </a-layout>
+        <a-layout-sider
+          width="300"
+          style="background: #fff"
+          class="settings-panel"
+        >
+          组件属性
+          <props-table
+            v-if="currentElement && currentElement.props"
+            :props="currentElement.props"
+            @change="handleChange"
+          ></props-table>
+          <pre>{{ currentElement && currentElement.props }}</pre>
+        </a-layout-sider>
       </a-layout>
-      <a-layout-sider
-        width="300"
-        style="background: #fff"
-        class="settings-panel"
-      >
-        组件属性
-        <props-table
-          v-if="currentElement && currentElement.props"
-          :props="currentElement.props"
-          @change="handleChange"
-        ></props-table>
-        <pre>{{ currentElement && currentElement.props }}</pre>
-      </a-layout-sider>
     </a-layout>
   </div>
 </template>
@@ -44,19 +58,25 @@ import { defaultTextTemplates } from '../defaultTemplates'
 
 import ComponentsList from '@/components/ComponentsList.vue'
 import PropsTable from '@/components/PropsTable.vue'
+import EditWrapper from '@/components/EditWrapper.vue'
+import LText from '@/components/LText.vue'
+import LImage from '@/components/LImage.vue'
 
 export default defineComponent({
   components: {
+    LText,
+    LImage,
     ComponentsList,
-    PropsTable
+    PropsTable,
+    EditWrapper
   },
   setup() {
     const store = useStore<GlobalDataProps>()
     const components = computed(() => store.state.editor.components)
+    console.log(components.value)
     const currentElement = computed<ComponentData | null>(
       () => store.getters.getCurrentElement
     )
-    console.log(currentElement.value, '000000000000000000000000000000')
     const addItem = (component: any) => {
       store.commit('addComponent', component)
     }
@@ -89,9 +109,9 @@ export default defineComponent({
   position: relative;
 }
 .editor-container .preview-list {
-  padding: 0;
+  padding: 15px;
   margin: 0;
-  min-width: 375px;
+  min-width: 360px;
   min-height: 200px;
   border: 1px solid #efefef;
   background: #fff;

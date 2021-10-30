@@ -88,7 +88,7 @@ export default defineComponent({
           }
           return result
         },
-        {} as { [key: string]: FormProps }
+        {} as Required<PropsToForms>
       )
     })
     return {
