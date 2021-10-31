@@ -1,8 +1,14 @@
 <template>
-  <a-button type="primary" v-if="!user.isLogin" class="user-profile-component" @click="login">登录</a-button>
+  <a-button
+    type="primary"
+    v-if="!user.isLogin"
+    class="user-profile-component"
+    @click="login"
+    >登录</a-button
+  >
   <div v-else>
     <a-dropdown-button class="user-profile-component">
-      <router-link to="/setting">{{user.userName}}</router-link>
+      <router-link to="/setting">{{ user.userName }}</router-link>
       <template v-slot:overlay>
         <a-menu class="user-profile-dropdown">
           <a-menu-item key="0" @click="logout">登出</a-menu-item>
