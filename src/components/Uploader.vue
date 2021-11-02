@@ -6,19 +6,17 @@
       v-on="events"
     >
       <slot v-if="isUploading" name="loading">
-        <a-button style="width: 100px" type="primary" disabled
-          >正在上传</a-button
-        >
+        <button disabled>正在上传</button>
       </slot>
       <slot
         name="uploaded"
         v-else-if="lastFileData && lastFileData.loaded"
         :uploadedData="lastFileData.data"
       >
-        <a-button style="width: 100px" type="primary">点击上传</a-button>
+        <button>点击上传</button>
       </slot>
       <slot v-else name="default">
-        <a-button style="width: 100px" type="primary">点击上传</a-button>
+        <button>点击上传</button>
       </slot>
     </div>
     <input
