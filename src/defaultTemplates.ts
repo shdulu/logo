@@ -3,10 +3,12 @@ export const defaultTextTemplates = [
     text: '大标题',
     fontSize: '30px',
     fontWeight: 'bold',
+    color: '#333333',
     tag: 'h2'
   },
   {
     text: '正文内容',
+    color: '#666',
     tag: 'p'
   },
   {
