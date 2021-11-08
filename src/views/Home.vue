@@ -8,7 +8,6 @@
 import { defineComponent, computed } from 'vue'
 import { useStore } from 'vuex'
 import { GlobalDataProps } from '@/store/index'
-
 import TemplateList from '../components/TemplateList.vue'
 
 export default defineComponent({
@@ -26,7 +25,7 @@ export default defineComponent({
 })
 </script>
 
-<style>
+<style scoped>
 .page-title {
   color: #fff;
 }

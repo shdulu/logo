@@ -16,7 +16,6 @@
 import { defineComponent } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import { message } from 'ant-design-vue'
-import LText from './LText.vue'
 import StyledUploader from './StyledUploader.vue'
 import { ComponentData } from '@/store/editor'
 import { imageDefaultProps, TextComponentProps } from '@/defaultProps'
@@ -32,7 +31,6 @@ export default defineComponent({
   emits: ['on-item-click'],
   name: 'components-list',
   components: {
-    LText,
     StyledUploader
   },
   setup(props, context) {

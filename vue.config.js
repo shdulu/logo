@@ -1,11 +1,31 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
+// const webpack = require('webpack')
+
+// const BundleAnalyzerPlugin =
+//   require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const isStaging = !!process.env.VUE_APP_STAGINE
 const isProduction = process.env.NODE_ENV === 'production'
+// const isAnalyzeMode = !!process.env.ANALYZE_MODE
 
 module.exports = {
-  publicPath: './',
+  publicPath:
+    isProduction && !isStaging ? 'https://oss.imooc-lego.com/editor' : '/',
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: !isProduction,
   productionSourceMap: !isProduction,
+  css: {
+    loaderOptions: {
+      less: {
+        lessOptions: {
+          modifyVars: {
+            'primary-color': '#3E7FFF'
+          },
+          javascriptEnabled: true
+        }
+      }
+    }
+  },
   devServer: {
     open: true,
     port: 9000,

@@ -59,8 +59,7 @@ import { defaultTextTemplates } from '../defaultTemplates'
 import ComponentsList from '@/components/ComponentsList.vue'
 import PropsTable from '@/components/PropsTable.vue'
 import EditWrapper from '@/components/EditWrapper.vue'
-import LText from '@/components/LText.vue'
-import LImage from '@/components/LImage.vue'
+import { LImage, LText } from 'logo-components'
 
 export default defineComponent({
   components: {
@@ -73,7 +72,6 @@ export default defineComponent({
   setup() {
     const store = useStore<GlobalDataProps>()
     const components = computed(() => store.state.editor.components)
-    console.log(components.value)
     const currentElement = computed<ComponentData | null>(
       () => store.getters.getCurrentElement
     )

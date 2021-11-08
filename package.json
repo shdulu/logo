@@ -4,6 +4,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:staging": "vue-cli-service build --mode staging",
+    "build:analyze": "vue-cli-service build --mode analyze",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint"
   },
@@ -13,6 +15,7 @@
     "core-js": "^3.6.5",
     "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
+    "logo-components": "^1.0.0",
     "uuid": "^8.3.2",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0",
@@ -47,10 +50,5 @@
     "sass-loader": "^8.0.2",
     "typescript": "~4.1.5",
     "vue-jest": "^5.0.0-0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }
