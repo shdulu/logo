@@ -2,7 +2,7 @@
   <div class="template-list-component">
     <a-row :gutter="16">
       <a-col :span="6" v-for="item in list" :key="item.id" class="poster-item">
-        <router-link :to="{name: 'Template', params: {id: item.id}}">
+        <router-link :to="{ name: 'Template', params: { id: item.id } }">
           <a-card hoverable>
             <template v-slot:cover>
               <img :src="item.coverImg" v-if="item.coverImg" />
@@ -17,8 +17,8 @@
             <a-card-meta :title="item.title">
               <template v-slot:description>
                 <div class="description-detail">
-                  <span>作者：{{item.author}}</span>
-                  <span class="user-number">{{item.copiedCount}}</span>
+                  <span>作者：{{ item.author }}</span>
+                  <span class="user-number">{{ item.copiedCount }}</span>
                 </div>
               </template>
             </a-card-meta>

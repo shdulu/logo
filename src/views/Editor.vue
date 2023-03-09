@@ -36,7 +36,7 @@
           style="background: #fff"
           class="settings-panel"
         >
-          组件属性
+          <div class="sidebar-title">组件属性</div>
           <props-table
             v-if="currentElement && currentElement.props"
             :props="currentElement.props"
@@ -96,7 +96,15 @@ export default defineComponent({
 })
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+.sidebar-title {
+  text-align: center;
+  font-size: 18px;
+  padding: 10px 0;
+  margin-bottom: 10px;
+  color: #fff;
+  background-color: #1890ff;
+}
 .editor-container .preview-container {
   padding: 24px;
   margin: 0;

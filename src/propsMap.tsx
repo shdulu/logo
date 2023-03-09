@@ -1,4 +1,4 @@
-import { VNode, h } from 'vue'
+import { VNode } from 'vue'
 import { TextComponentProps } from './defaultProps'
 
 export interface PropToForm {

@@ -1,5 +1,5 @@
 {
-  "window.zoomLevel": 0.5,
+  "window.zoomLevel": 0.8,
   "editor.tabSize": 2,
   "search.exclude": {
     "**/node_modules": false

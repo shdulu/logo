@@ -3,7 +3,7 @@
     <a-layout :style="{ background: '#fff' }">
       <a-layout-header class="header">
         <div class="page-title">
-          <router-link to="/">sudu 前端结构</router-link>
+          <router-link to="/">swin 前端低代码</router-link>
         </div>
         <user-profile :user="user"></user-profile>
       </a-layout-header>
@@ -11,7 +11,9 @@
         <router-view></router-view>
       </a-layout-content>
     </a-layout>
-    <a-layout-footer>© sudu前端（sudu.com）版权所有 | ICP备20000929号-2</a-layout-footer>
+    <a-layout-footer
+      >© sudu前端（sudu.com）版权所有 | ICP备20000929号-2</a-layout-footer
+    >
   </div>
 </template>
 

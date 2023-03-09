@@ -22,7 +22,7 @@ export const testTemplates: TemplateProps[] = [
     id: 2,
     coverImg:
       'https://static.imooc-lego.com/upload-files/screenshot-677311.png',
-    title: 'shdu 前端架构学习',
+    title: 'mock模板1',
     author: 'shdulu',
     copiedCount: 1
   },
@@ -30,7 +30,7 @@ export const testTemplates: TemplateProps[] = [
     id: 3,
     coverImg:
       'https://static.imooc-lego.com/upload-files/screenshot-682056.png',
-    title: 'shdu 前端架构学习',
+    title: 'mock模板2',
     author: 'shdulu',
     copiedCount: 1
   },
@@ -38,7 +38,7 @@ export const testTemplates: TemplateProps[] = [
     id: 4,
     coverImg:
       'https://static.imooc-lego.com/upload-files/screenshot-677311.png',
-    title: 'shdu 前端架构学习',
+    title: 'mock模板3',
     author: 'shdulu',
     copiedCount: 1
   },
@@ -46,7 +46,7 @@ export const testTemplates: TemplateProps[] = [
     id: 5,
     coverImg:
       'https://static.imooc-lego.com/upload-files/screenshot-889755.png',
-    title: 'shdu 前端架构学习',
+    title: 'mock模板4',
     author: 'shdulu',
     copiedCount: 1
   },
@@ -54,7 +54,7 @@ export const testTemplates: TemplateProps[] = [
     id: 6,
     coverImg:
       'https://static.imooc-lego.com/upload-files/screenshot-677311.png',
-    title: 'shdu 前端架构学习',
+    title: 'mock模板5',
     author: 'shdulu',
     copiedCount: 1
   }

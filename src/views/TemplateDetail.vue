@@ -8,8 +8,7 @@
         <h2>{{ template.title }}</h2>
         <p>{{ template.title }}</p>
         <div class="author">
-          <a-avatar>V</a-avatar>该模版由
-          <b>{{template.author}}</b> 创作
+          <a-avatar>V</a-avatar>该模版由 <b>{{ template.author }}</b> 创作
         </div>
         <div class="bar-code-area">
           <span>扫一扫，手机预览</span>
