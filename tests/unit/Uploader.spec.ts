@@ -2,6 +2,7 @@ import { shallowMount, VueWrapper, mount } from '@vue/test-utils'
 import Uploader from '@/components/Uploader.vue'
 import axios from 'axios'
 import flushPromises from 'flush-promises'
+// 使用jest 接管 axios
 jest.mock('axios')
 
 const mockedAxios = axios as jest.Mocked<typeof axios>
@@ -231,6 +232,7 @@ describe('Uploader Component', () => {
     expect(firstImg.attributes('src')).toEqual('test.url')
   })
   afterEach(() => {
+    // 每次用例运行完成 重置mock 避免状态相互影响
     mockedAxios.post.mockReset()
   })
 })

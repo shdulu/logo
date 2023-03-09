@@ -5,15 +5,17 @@ import UserProfile from '@/components/UserProfile.vue'
 
 let wrapper: VueWrapper<any>
 
+// 使用jest 接管 ant-design-vue
 jest.mock('ant-design-vue', () => ({
+  //
   message: {
-    success: jest.fn()
+    success: jest.fn() // jest.fn 接管success函数
   }
 }))
 const mockedRoutes: string[] = []
 jest.mock('vue-router', () => ({
   useRouter: () => ({
-    push: (url: string) => mockedRoutes.push(url)
+    push: (url: string) => mockedRoutes.push(url) // mock路由实现
   })
 }))
 
@@ -35,7 +37,8 @@ const globalComponents = {
 
 describe('UserProfile component', () => {
   beforeAll(() => {
-    jest.useFakeTimers()
+    // 用例运行前
+    jest.useFakeTimers() // 处理setTimeout
     wrapper = mount(UserProfile, {
       props: {
         user: { isLogin: false }
@@ -43,6 +46,7 @@ describe('UserProfile component', () => {
       global: {
         components: globalComponents,
         provide: {
+          // 注入store
           store
         }
       }
@@ -69,10 +73,12 @@ describe('UserProfile component', () => {
     await wrapper.get('.user-profile-dropdown div').trigger('click')
     expect(store.state.user).toBeTruthy()
     expect(message.success).toHaveBeenCalledTimes(1)
-    jest.runAllTimers()
+    jest.runAllTimers() // 假设所有的setTimeout 已经结束
     expect(mockedRoutes).toEqual(['/'])
+    // tobe 全等，对象引用地址也会比较  toEqual 值等不会对比引用地址
   })
   afterEach(() => {
+    // 这次用例执行完成后要执行一次 mockReset 防止用例之间mock状态相互影响
     ;(message as jest.Mocked<typeof message>).success.mockReset()
   })
 })
